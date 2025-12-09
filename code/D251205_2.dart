@@ -1,0 +1,50 @@
+
+/// 회문 판별
+/// 회문 : 글자를 앞에서 읽으나 뒤에서 읽으나 같은 글자!
+/// ex) level, eye, kayak, noon, reviver
+void main() {
+  // 1-6 여기까지 출력시 true 2, false 1나옴
+  print(isPalindrome("level"));
+  print(isPalindrome("reviver"));
+  print(isPalindrome("test"));
+}
+
+/// 문자열을 입력받아서
+/// 회문이면 true
+/// 아니면 false
+/// 반환하는 함수
+bool isPalindrome(String str) {
+  // ====== 함수 시작 =======
+  // "level" 이라는 문자열이 들어올 때 어떻게 비교?
+  // 1. 문자열을 한글자씩 새로운 리스트에 뒤집어서 담기 -> 뒤집은 문자열의 리스트와 기존 리스트 비교
+  // 반복문은 5번이 반복됨, 뒤에서 또 5번 반복. => 5 + 5 번의 반복이 이루어짐
+  // => 한글자씩 담긴 리스트(길이 5) + 뒤집은 문자열 담은 리스트(길이 5) => 길이 10 정도 필요
+  // 변수들에 저 길이가 저장됨. 길이를 줄이기
+
+  // 2. 문자열 한글자씩 리스트에 담기 -> 리스트 반복하면서 첫글자와 끝글자 비교
+  // => 반복문에서 i 번째 글자와 (리스트 길이 - i - 1) 번째 글자 비교
+  // => 'level' 이라는 문자열의 경우 : 3번?? 가운데 글자가 홀수여서 2번만 반복하면 됨
+  // => 한글자씩 담긴 리스트가 와야 해서(길이 5) => 길이 5정도 필요
+
+  // 1번 방법은 길이가 10이 필요, 2번 방법은 길이가 5가 필요 => 2번이 메모리가 더 효율적임!
+  // 공간복잡도 : 메모리 공간을 얼마나 차지하는지 (RAM과 관련)
+  // 시간복잡도 : 얼마나 걸렸는지 (CPU와 관련)
+
+  // 2번 방법으로 함수 진행
+  List<String> charList = str.split(''); // 패턴을 토대로 인자를 나눠줌. 한글자씩 분리하고 싶을 때는 빈 문자열 split !
+  int halfIndex = charList.length ~/ 2; // 1-2
+  for (var i = 0; i < halfIndex; i++) { halfIndex = 3// 1-1 2번 반복이 됨. 글자 길이의 절반만큼 반복인데 
+    // i = 0 일 때,
+    // 첫글자, 끝글자
+    // revier -> index는 0부터 시작해서 -1을 해줘야 마지막꺼 6. 
+    String char1 = charList[i];
+    int endIndex = charList.length - 1 - i; // 1-4 -1을 해줘야 6 5 4 줄어들음
+    String char2 = charList[endIndex]; // 1-3 
+    if (char1 != char2) {
+      return false; // 1-5 중간 글자가 달라도 진행하기 위해
+    }
+  } 
+  return true;
+
+  // ====== 함수 끝 =======
+}
