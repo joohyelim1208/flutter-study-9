@@ -31,20 +31,31 @@ bool isPalindrome(String str) {
   // 시간복잡도 : 얼마나 걸렸는지 (CPU와 관련)
 
   // 2번 방법으로 함수 진행
-  List<String> charList = str.split(''); // 패턴을 토대로 인자를 나눠줌. 한글자씩 분리하고 싶을 때는 빈 문자열 split !
+  List<String> charList = str.split(''); // 패턴을 토대로 인자를 나눠줌. 쉼표 기준으로 나누거나 한글자씩 분리하고 싶을 때는 빈 문자열 split !
   int halfIndex = charList.length ~/ 2; // 1-2
   for (var i = 0; i < halfIndex; i++) { halfIndex = 3// 1-1 2번 반복이 됨. 글자 길이의 절반만큼 반복인데 
     // i = 0 일 때,
     // 첫글자, 끝글자
     // revier -> index는 0부터 시작해서 -1을 해줘야 마지막꺼 6. 
-    String char1 = charList[i];
-    int endIndex = charList.length - 1 - i; // 1-4 -1을 해줘야 6 5 4 줄어들음
-    String char2 = charList[endIndex]; // 1-3 
+    String char1 = charList[i]; // 첫번째 글자
+    int endIndex = charList.length - 1 - i; // 1-4 -1 리스트에 마지막 인덱스가 됨. 6 5 4 줄어들음. - i 는
+    String char2 = charList[endIndex]; // 1-3 마지막 글자
     if (char1 != char2) {
       return false; // 1-5 중간 글자가 달라도 진행하기 위해
     }
   } 
   return true;
 
+  // 이해 안가는 부분 다시
+  // level일 때 글자는 5개, INDEX는 0부터 시작해서 0 1 2 3 4. length는 5. i - 1 = 마지막.
+  // for i가 0부터 4까지 증가하는 동안 i - 1 => 4 - i => 4 3 2 1 하나씩 줄어들기 위해 -i하는 것
+  
+  // 직접 적어보면 이해가 쉽다
+  // i = 0 일 때 => length - 1 - (0)i = 4 => [4] => l
+  // i = 1 일 때 => length - 1 - (1)i = 3 => [3] => e
+  // i = 2 일 때 => length - 1 - (2)i = 2 => [2] => v
+
   // ====== 함수 끝 =======
 }
+
+// + 문자열 => 한글자씩 리스트로 => 거꾸로 한글자씩 리스트로 출력하기 연습하기
