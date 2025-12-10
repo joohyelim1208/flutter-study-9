@@ -110,3 +110,6 @@ git commit -m "제목을 입력"
 
   - 왼쪽에 빨간점 찍고 디버그로 실행한 뒤 왼쪽Locals 쪽에서 확인 가능. 실제로 유용하게 쓰는 기능
   - docs 커밋태그!!!
+
+  -mermaid chart 홈페이지에서 코드를 그림 차트로 만들어줌! 이미지 연상 
+  https://mermaid.js.org/syntax/flowchart.html
