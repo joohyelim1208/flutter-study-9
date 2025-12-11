@@ -113,3 +113,13 @@ git commit -m "제목을 입력"
 
   -mermaid chart 홈페이지에서 코드를 그림 차트로 만들어줌! 이미지 연상 
   https://mermaid.js.org/syntax/flowchart.html
+
+  - 왼쪽에서 커밋하는 방법
+  - 터미널에서 입력해 준 뒤 git에 있는 정보
+   git config --global user.email "이메일"
+   git config --global user.name "깃허브닉네임"
+   왼쪽 가지모양 누르고 docs.00000 입력하고 커밋
+   옆에 점 세개 누르고 push 하면 올라감
+
+   - 중요!!!! "슈도코드" : 의사결정 코드
+     이걸 먼저 적는 연습을 해야한다.
