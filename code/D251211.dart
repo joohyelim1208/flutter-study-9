@@ -25,8 +25,7 @@ void main() async{ //async를 걸어줘야 함.
   // Lines : ["홍길동,90", "김철수,80", "지은성,100", ...] 
   List<String> lines = content.split('\n'); // 띄어쓰기라는게 없어서 써줌
   // 아래 변수를 for 문 밖에서 추가해줌
-  List<String> nameList = []; // for문 까지 써준 후 추가
-  List<int> scoreList = []; // "
+  
   // 2 student객체들을 담아줄 것을 추가
   List<Student> studentsList = [];
 
@@ -56,38 +55,7 @@ void main() async{ //async를 걸어줘야 함.
   Student s = Student(name, Score);
   studentsList.add(s); // 2 학생의 정보가 담긴 객체들이 리스트 안에 들어감
   }
-  // 이름과 점수가 각각 다른리스트에서 관리된다면
-  // 만약 점수 리스트에서 값이 제거된다면
-  // 이름리스트와 점수리스트 간 index들이 맞지 않음!
-  // 그래서 하나의 클래스에 이름과 점수를 함께 담을 수 있게 구현해서
-  // 그 클래스 객체에 이름과 점수를 함께 담은 후
-  // 리스트에 그 객체를 저장한다
-  // 그 클래스 이름은 Student로 지정
-
-  // for문 밖에서 출력
-  print(nameList);
-  print(scoreList); // 이름, 점수가 각각 반복되며 한단 씩 출력됨
-  /*
-홍길동
-90
-김철수
-80
-지은성
-100
-주혜림
-100
-김동준
-100
-박진
-100
-최승현
-0
-이지원
-95
-  */
- scoreList.removeAt(0);
- nameList[2];
- scoreList[2];
+ 
 
 }
 // 2 클래스 타입을 만들어줌
